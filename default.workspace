@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="1-employee/1-employee.cbp" />
+		<Project filename="2-stackUsingArray/2-stackUsingArray.cbp" />
+		<Project filename="3a-infixToPostfix/3a-infixToPostfix.cbp" />
+		<Project filename="3b-infixToPrefix/3b-infixToPrefix.cbp" />
+		<Project filename="3c-evalPostPre/3c-evalPostPre.cbp" />
+		<Project filename="4-stringQueueUsingArray/4-stringQueueUsingArray.cbp" />
+		<Project filename="5-circularQueueUsingArray/5-circularQueueUsingArray.cbp" />
+		<Project filename="6-singlyLinkedList/6-singlyLinkedList.cbp" />
+		<Project filename="7-unionIntersection/7-unionIntersection.cbp" />
+		<Project filename="8-stackUsingLinkedList/8-stackUsingLinkedList.cbp" />
+		<Project filename="9-queueUsingLinkedList/9-queueUsingLinkedList.cbp" />
+		<Project filename="10-addPolynomial/10-addPolynomial.cbp" />
+		<Project filename="11-doublyLinkedList/11-doublyLinkedList.cbp" />
+		<Project filename="12-deque/12-deque.cbp" />
+		<Project filename="13-binarySearchTree/13-binarySearchTree.cbp" />
+		<Project filename="14-expressionTree/14-expressionTree.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
