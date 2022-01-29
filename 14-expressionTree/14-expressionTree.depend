@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1643487738 source:c:\users\shrey\downloads\code\dsalabthirdsem\14-expressiontree\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<math.h>
+

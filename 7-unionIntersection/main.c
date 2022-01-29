@@ -26,36 +26,6 @@ NODE getNode()
     }
     return x;
 }
-/*NODE insertInOrder(NODE start,int ele)
-{
-    NODE prev,tmp,newN;
-    newN=getNode();
-    newN->data=ele;
-    newN->next=NULL;
-    if(start==NULL)
-    {
-        start=newN;
-        return start;
-    }
-    tmp=start;
-    prev=start;
-    while(tmp!=NULL && tmp->data<ele)
-    {
-        prev=tmp;
-        tmp=tmp->next;
-    }
-    if(prev->data>ele)
-    {
-        newN->next=prev->next;
-        prev->next=newN;
-    }
-    else
-    {
-        newN->next=prev->next;
-        prev->next=newN;
-    }
-    return start;
-}*/
 NODE insertInOrder(NODE start,int val)
 {
     NODE newl,temp,previous;

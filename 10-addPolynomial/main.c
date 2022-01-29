@@ -4,18 +4,30 @@ Develop and implement addition of two polynomials with two coefficients using si
 
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct node{
+struct node
+{
     float coeff;
     float powx;
     float powy;
     int flag;
     struct node * next;
-} Node;
-
-Node *insAtLast(Node *first, float cf, float px, float py)
+};
+typedef struct node * NODE;
+NODE getNode()
 {
-    Node *newnode, *temp;
-    newnode = (Node *)malloc(sizeof(Node));
+    NODE x;
+    x=(NODE)malloc(sizeof(struct node));
+    if(x==NULL)
+    {
+        printf("WARN: could not allot memory");
+        return;
+    }
+    return x;
+}
+NODE insAtLast(NODE first, float cf, float px, float py)
+{
+    NODE newnode,temp;
+    newnode =getNode();
     newnode->coeff = cf;
     newnode->powx = px;
     newnode->powy = py;
@@ -32,7 +44,7 @@ Node *insAtLast(Node *first, float cf, float px, float py)
     }
     return first;
 }
-Node *readPoly(Node *first)
+NODE readPoly(NODE first)
 {
     float cf, px, py;
     printf("Enter number of terms:");
@@ -46,12 +58,12 @@ Node *readPoly(Node *first)
         scanf("%f", &px);
         printf("\nEnter power of y: ");
         scanf("%f", &py);
-        first = insAtLast(first, cf, px, py);
+        first=insAtLast(first, cf, px, py);
 
     }
     return first;
 }
-void display(Node *first)
+void display(NODE first)
 {
     if (first == NULL)
     {
@@ -60,14 +72,14 @@ void display(Node *first)
     }
     while (first->next!= NULL)
     {
-        printf("%.0fx^%0.fy^%0.f + ", first->coeff, first->powx, first->powy);
+        printf("%.0fx^(%0.f)y^(%0.f) + ", first->coeff, first->powx, first->powy);
         first = first->next;
     }
-    printf("%.0fx^%0.fy^%0.f ", first->coeff, first->powx, first->powy);
+    printf("%.0fx^(%0.f)y^(%0.f) ", first->coeff, first->powx, first->powy);
 }
-Node *addPoly(Node *p1, Node *p2, Node *p3)
+NODE addPoly(NODE p1, NODE p2, NODE p3)
 {
-    Node *temp;
+    NODE temp;
     float cf;
     temp = p2;
     while (p1 != NULL)
@@ -103,12 +115,12 @@ Node *addPoly(Node *p1, Node *p2, Node *p3)
 }
 int main()
 {
-    Node *p1 = NULL, *p2 = NULL, *p3 = NULL;
+    NODE p1=NULL,p2=NULL,p3=NULL;
     printf("\nEnter the first polynomial:\n");
-    p1 = readPoly(p1);
+    p1=readPoly(p1);
     printf("\nEnter the second polynomial:\n");
-    p2 = readPoly(p2);
-    p3 = addPoly(p1, p2, p3);
+    p2=readPoly(p2);
+    p3=addPoly(p1, p2, p3);
     printf("\nOur first polynomial is:    ");
     display(p1);
     printf("\nOur second polynomial is:   ");

@@ -10,13 +10,11 @@ struct node
     int data;
     struct node *right, *left;
 };
-
-typedef struct node *NODE;
-
+typedef struct node * NODE;
 NODE getNode()
 {
     NODE x;
-    x = (NODE)malloc(sizeof(struct node));
+    x =(NODE)malloc(sizeof(struct node));
     if (x == NULL)
     {
         printf("Node Cannot be created\n");
@@ -150,29 +148,23 @@ int main()
             scanf("%d", &data);
             head = insertFirst(head, data);
             break;
-
         case 2:
             printf("Enter the data to be inserted :");
             scanf("%d", &data);
             head = insertLast(head, data);
             break;
-
         case 3:
             head = deleteFirst(head);
             break;
-
         case 4:
             head = deleteLast(head);
             break;
-
         case 5:
             display(head);
             break;
-
         case 6:
             exit(0);
             break;
-
         default:
             printf("Invalid Input....\n");
             break;

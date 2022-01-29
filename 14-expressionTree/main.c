@@ -6,21 +6,31 @@ Develop and implement an expression tree for a given valid postfix expression an
 #include<stdlib.h>
 #include<ctype.h>
 #include<math.h>
-
-typedef struct node
+struct node
 {
     char info;
     struct node *lchild,*rchild;
-} NODE;
-
-NODE * create_tree(char postfix[])
+};
+typedef struct node * NODE;
+NODE getNode()
 {
-    NODE *newnode, *stack[20];
+    NODE x;
+    x=(NODE)malloc(sizeof(struct node));
+    if(x==NULL)
+    {
+        printf("WARN: could not allot memory");
+        return;
+    }
+    return x;
+}
+NODE create_tree(char postfix[])
+{
+    NODE newnode,stack[20];
     int i=0, top = -1;
     char ch;
     while((ch=postfix[i++])!='\0')
     {
-        newnode = (NODE*)malloc(sizeof(NODE));
+        newnode =getNode();
         newnode->info = ch;
         newnode->lchild = newnode->rchild = NULL;
         if(isalnum(ch))
@@ -34,8 +44,7 @@ NODE * create_tree(char postfix[])
     }
     return(stack[top--]);
 }
-
-float eval(NODE *root)
+float eval(NODE root)
 {
     float num;
     switch(root->info)
@@ -53,7 +62,7 @@ float eval(NODE *root)
     default:
         if(isalpha(root->info))
         {
-            printf("\n%c = ",root->info);
+            printf("%c = ",root->info);
             scanf("%f",&num);
             return(num);
         }
@@ -61,12 +70,11 @@ float eval(NODE *root)
             return(root->info - '0');
     }
 }
-
 int main()
 {
     char postfix[30];
     float res;
-    NODE * root = NULL;
+    NODE root = NULL;
     printf("\nEnter a valid Postfix expression\n");
     scanf("%s",postfix);
     root = create_tree(postfix);
